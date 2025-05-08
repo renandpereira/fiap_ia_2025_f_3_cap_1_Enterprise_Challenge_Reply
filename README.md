@@ -1,0 +1,1 @@
+# fiap_ia_2025_f_3_cap_1_Enterprise_Challenge_Reply
