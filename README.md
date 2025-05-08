@@ -116,14 +116,6 @@ A coordenação de cada entrega do projeto foi definida da seguinte forma:
 
 O projeto estabelece uma base sólida para uma plataforma SaaS de manutenção preditiva. O MVP funcional demonstrará os principais aspectos da solução. Melhorias futuras podem incluir modelagem ML mais avançada, integração com CMMS, edge computing, análise de causa raiz aprimorada, e personalização avançada por tenant.
 
-## Como Usar este Repositório
-
-*(Esta seção normalmente conteria instruções sobre como clonar, configurar o ambiente, rodar o projeto, etc. Como o documento foca no design, esta seção pode ser adaptada conforme o código real do projeto for desenvolvido).*
-
-* **Documentação:** A principal documentação de design e planejamento encontra-se no arquivo `Entrega 1 Design Fundamental - Metodologia, Tecnologias e Conceito de Pipeline.pdf` e nos documentos subsequentes de cada entrega.
-* **Código Fonte:** O código-fonte do projeto (scripts Python, configurações IaC, notebooks SageMaker, código ESP32, etc.) estará organizado em suas respectivas pastas.
-* **Acesso ao Protótipo:** (Se aplicável, fornecer link e credenciais de acesso ao protótipo SaaS implantado).
-
 ## Contribuições
 
 Este é um projeto acadêmico desenvolvido pelo Grupo 83. Para contribuições ou dúvidas, por favor, entre em contato com os membros do grupo.
