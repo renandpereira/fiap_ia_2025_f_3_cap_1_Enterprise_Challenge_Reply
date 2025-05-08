@@ -100,8 +100,6 @@ A coordenação de cada entrega do projeto foi definida da seguinte forma:
 | 3. Armazenamento e Estrutura de Dados                                 | Deivisson   | 565095 | TODOS        |
 | 4. Implementação na Nuvem, Integração de IA e Implantação do MVP      | Renan       | 566175 | TODOS        |
 
-*(Tabela baseada na seção 2.6 do documento fornecido)*
-
 ## 10. Detalhes das Entregas Futuras (Resumido)
 
 * **Entrega 2 - Aquisição e Preparação de Dados:** Foco na integração dos sensores ESP32 (MPU6050, DHT22, Sensor de Gás MQ-XXX, PIR, LDR), código de coleta (MicroPython/Arduino), limpeza de dados, Análise Exploratória de Dados (EDA) e criação de User Stories detalhadas para guiar o desenvolvimento das funcionalidades da plataforma.
