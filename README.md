@@ -1,127 +1,119 @@
-# fiap_ia_2025_f_3_cap_1_Enterprise_Challenge_Reply
 
-# Projeto Plataforma SaaS de Manutenção Preditiva Industrial com IA na AWS
+# 📦 Projeto SaaS de Manutenção Preditiva Industrial com IA na AWS
 
-Este projeto descreve o design e a implementação de uma plataforma SaaS (Software-as-a-Service) multi-tenant para manutenção preditiva industrial, utilizando Inteligência Artificial (IA) e Machine Learning (ML) em dados coletados em tempo real por sensores IoT. A solução visa prever falhas em equipamentos, otimizar cronogramas de manutenção e reduzir custos operacionais para clientes industriais.
+## 🧠 Descrição Geral
 
-Este README foi gerado com base no documento "Entrega 1 Design Fundamental - Metodologia, Tecnologias e Conceito de Pipeline.pdf".
+Este projeto propõe o design e desenvolvimento de uma plataforma SaaS (multi-tenant) para manutenção preditiva industrial, utilizando sensores IoT e algoritmos de Inteligência Artificial (IA) e Machine Learning (ML). A proposta prevê a coleta de dados em tempo real, análise preditiva, alertas inteligentes e visualizações interativas.
 
-## 1. Introdução
+## 🎯 Objetivo
 
-A indústria moderna enfrenta desafios significativos com a manutenção de equipamentos críticos, onde falhas inesperadas resultam em paradas não planejadas, perdas de produtividade e aumento de custos. As abordagens tradicionais de manutenção reativa e preventiva frequentemente se mostram ineficientes. Este projeto propõe uma solução de Manutenção Preditiva (PdM) baseada em IA e ML para superar essas limitações.
+Prever falhas em equipamentos industriais, reduzir custos com manutenção corretiva, otimizar cronogramas preventivos e aumentar a eficiência operacional.
 
-**Objetivo Principal:** Desenvolver uma plataforma SaaS que utilize dados de sensores em tempo real para prever potenciais falhas em equipamentos industriais, otimizar a manutenção, reduzir o tempo de inatividade e prolongar a vida útil dos ativos.
+## 🧱 Contexto do Projeto
 
-## 2. Contexto do Projeto
+Desenvolvido como parte do curso de IA da FIAP, em parceria com a Hermes Reply no desafio "Enterprise Challenge". A Hermes Reply é especializada em soluções de Indústria 4.0 com foco em IoT, IA, automação e transformação digital.
 
-Este projeto é desenvolvido no âmbito do curso de graduação em Inteligência Artificial da FIAP, em resposta a um desafio ("Enterprise Challenge - Sprint 1 - Reply") que simula o desenvolvimento desta plataforma pela Hermes Reply, uma empresa especializada em soluções para a Indústria 4.0.
+## 💡 Solução Proposta
 
-## 3. Solução Proposta
+- Coleta de dados com ESP32 e sensores industriais.
+- Armazenamento em nuvem via AWS (IoT Core, RDS, S3).
+- Modelos de ML para previsão de falhas (Random Forest, LSTM).
+- Dashboards interativos e alertas automatizados (SNS/WhatsApp).
+- Arquitetura multi-tenant e escalável.
 
-Uma plataforma SaaS multi-tenant de Manutenção Preditiva que integra:
-* Coleta de dados de sensores IoT (ESP32).
-* Processamento e armazenamento em nuvem (AWS).
-* Modelos avançados de IA/ML para análise preditiva (estimativa de Vida Útil Remanescente - RUL e classificação de falhas).
-* Dashboards interativos para visualização de dados e alertas.
-* Alertas automatizados sobre falhas iminentes.
+## 🧩 Metodologia Adotada
 
-## 4. Metodologia Adotada
+Base: **CRISP-DM** com abordagem iterativa:
 
-O projeto utiliza a metodologia **CRISP-DM** (Cross-Industry Standard Process for Data Mining), um processo iterativo composto pelas seguintes fases:
-1.  **Business Understanding** (Entendimento do Negócio)
-2.  **Data Understanding** (Entendimento dos Dados)
-3.  **Data Preparation** (Preparação dos Dados)
-4.  **Modeling** (Modelagem)
-5.  **Evaluation** (Avaliação)
-6.  **Deployment** (Implantação)
+- ✅ Business Understanding  
+- ✅ Data Understanding  
+- ✅ Data Preparation (limpeza, features)  
+- ✅ Modeling (RF, LSTM, tuning)  
+- ✅ Evaluation (F1, RUL score)  
+- 🔜 Deployment (MVP local → cloud)
 
-## 5. Stack Tecnológico Principal
+## 🧰 Stack Tecnológico
 
-| Categoria             | Tecnologia Escolhida          | Justificativa                                                                                                |
-| :-------------------- | :---------------------------- | :----------------------------------------------------------------------------------------------------------- |
-| Linguagem             | Python 3.x                    | Amplo ecossistema de bibliotecas para dados/ML, forte suporte comunitário, integração com AWS.                 |
-| Análise de Dados      | Pandas, NumPy, Matplotlib/Seaborn | Padrão da indústria para manipulação, computação numérica e visualização.                                     |
-| Banco de Dados        | PostgreSQL (AWS RDS)          | Banco de dados relacional robusto, suporte a SQL, particionamento avançado.                                  |
-| Plataforma de Nuvem   | AWS (Amazon Web Services)     | Serviços abrangentes para IoT, dados, ML, serverless; escalabilidade e confiabilidade.                         |
-| Machine Learning    | Scikit-learn, TensorFlow/Keras | Scikit-learn para baselines/pré-processamento; TF/Keras para Deep Learning (LSTMs).                             |
-| Hardware IoT          | ESP32                         | Microcontrolador de baixo custo com Wi-Fi/Bluetooth integrados, adequado para coleta de dados.                 |
+| Categoria             | Tecnologia                   | Justificativa |
+|-----------------------|------------------------------|----------------|
+| Linguagem             | Python 3.x                   | Robustez e comunidade ampla |
+| Análise de Dados      | Pandas, NumPy, Seaborn       | EDA e manipulação numérica |
+| Banco de Dados        | PostgreSQL (AWS RDS)         | Relacional, suporte multi-tenant |
+| Nuvem                 | AWS (IoT, Lambda, RDS, S3)   | Escalável e segura |
+| ML/IA                 | Scikit-learn, TensorFlow     | Modelos tradicionais e deep learning |
+| Visualização          | QuickSight, Grafana          | Dashboards e relatórios |
+| Hardware IoT          | ESP32 + Sensores             | Custo-benefício e flexibilidade |
 
-## 6. Design do Pipeline de Dados
+## 🔄 Pipeline de Dados
 
-O projeto contempla uma evolução desde um MVP local até a arquitetura final na nuvem AWS.
+| Etapa               | Descrição |
+|---------------------|-----------|
+| **Coleta**          | ESP32 envia dados via MQTT |
+| **Ingestão**        | AWS IoT Core aplica regras |
+| **Processamento**   | ETL via Lambda/Glue |
+| **Armazenamento**   | S3 (bruto), PostgreSQL (estruturado) |
+| **Modelagem ML**    | SageMaker executa Random Forest e LSTM |
+| **Visualização**    | Dashboards com KPIs e alertas |
+| **Notificações**    | Envio automático via SNS / WhatsApp |
 
-**6.1. Pipeline do MVP Local (Conceitual):**
-ESP32 (Sensores) -> Máquina Local (Script Python) -> Banco de Dados SQL Local (PostgreSQL) -> Modelo ML Local (Scikit-learn/TF) -> Saída (Log/Console).
+## 📊 Estratégia de Coleta de Dados
 
-**6.2. Pipeline Alvo na Nuvem (Conceitual):**
-ESP32 (Sensores via MQTT) -> AWS IoT Core -> IoT Rule -> Lambda/Kinesis -> Lambda/Glue (ETL) -> RDS (Estruturado) / S3 (Bruto/Processado) -> SageMaker (Treinamento/Avaliação/Deploy) -> API Gateway -> Dashboards (QuickSight/Grafana) & Alertas (CloudWatch/SNS).
+- **Dispositivo:** ESP32 com sensores (MPU6050, DHT22, MQ-x, LDR)  
+- **Protocolo:** MQTT via Wi-Fi  
+- **Frequência:** 10s (ajustável)  
+- **Simulação:** Scripts Python para dados artificiais realistas
 
-## 7. Estrutura do Projeto e Entregas (Challenge)
+## 🧠 Modelos de Machine Learning
 
-O desenvolvimento está organizado em quatro entregas principais, alinhadas com as fases do CRISP-DM:
+| Tipo                    | Modelo         | Métricas |
+|-------------------------|----------------|----------|
+| Classificação de falhas | Random Forest  | F1, Precision, Recall, ROC AUC |
+| Regressão (RUL)         | LSTM           | RMSE, MAE, R², PH |
 
-* **Entrega 1: Design Fundamental**
-    * **Atividades:** Definição do problema, pesquisa de tecnologias, design inicial da arquitetura, seleção da metodologia, cronograma, análise de riscos.
-    * **Foco CRISP-DM:** Business Understanding, Data Understanding (inicial).
-* **Entrega 2: Aquisição e Preparação de Dados**
-    * **Atividades:** Montagem do circuito ESP32, desenvolvimento do código de coleta de dados, ingestão inicial (local), definição de User Stories, limpeza de dados e EDA.
-    * **Foco CRISP-DM:** Data Understanding, Data Preparation.
-* **Entrega 3: Armazenamento e Estrutura de Dados**
-    * **Atividades:** Modelagem do banco de dados, implementação do schema, desenvolvimento de scripts para carga de dados, refinamento da estratégia de particionamento e multi-tenancy.
-    * **Foco CRISP-DM:** Data Preparation.
-* **Entrega 4: Implementação na Nuvem, Integração de IA e Implantação do MVP**
-    * **Atividades:** Implementação da arquitetura AWS completa, treinamento e avaliação dos modelos de ML no SageMaker, implantação do modelo, desenvolvimento do dashboard, configuração de logs/alertas, geração de relatórios inteligentes, finalização do MVP e documentação.
-    * **Foco CRISP-DM:** Modeling, Evaluation, Deployment.
+## 🧪 Estratégia de Treinamento ML
 
-## 8. Análise de Pontos Fortes e Riscos
+- Features: Rolling mean, FFT, tendências  
+- Balanceamento: SMOTE  
+- Avaliação: Cross-validation + hold-out  
+- Versionamento: MLflow + SageMaker Registry
 
-**Pontos Fortes:**
-* Expertise relevante da equipe (simulada pela Hermes Reply).
-* Utilização de tecnologias padrão de mercado (Python, AWS).
-* Alto potencial de impacto da manutenção preditiva.
-* Escalabilidade do modelo SaaS.
-* Riqueza de dados provenientes de múltiplos sensores.
+## 👥 Plano de Desenvolvimento
 
-**Principais Riscos e Estratégias de Mitigação:**
-* **Qualidade dos Dados dos Sensores:** Validação rigorosa, limpeza de dados, monitoramento dos sensores.
-* **Precisão e Generalização do Modelo ML:** Avaliação rigorosa, ajuste de hiperparâmetros, MLOps.
-* **Complexidade da Arquitetura Multi-Tenant na Nuvem:** Planejamento cuidadoso, IaC, testes extensivos, AWS Well-Architected Framework (SaaS Lens).
-* **Segurança (IoT, Nuvem, Dados):** Melhores práticas de segurança AWS (IAM, VPC, criptografia), proteção de dispositivos IoT.
-* **Conformidade com LGPD:** Estratégia clara de conformidade, gestão de direitos, segurança, definição de papéis.
+| Sprint | Tarefa                                   | Responsável |
+|--------|------------------------------------------|-------------|
+| 1      | Arquitetura e tecnologias                | Omar        |
+| 2      | Coleta de dados e sensores               | Paulo       |
+| 3      | Banco de dados e multi-tenancy           | Deivisson   |
+| 4      | ML, alerta e dashboard na AWS            | Renan       |
 
-## 9. Plano de Desenvolvimento e Divisão de Responsabilidades
+## ✨ Diferenciais da Solução
 
-A coordenação de cada entrega do projeto foi definida da seguinte forma:
+- 🔮 Previsão com Vida Útil Remanescente (RUL)  
+- 💬 Alertas automatizados via WhatsApp  
+- 📊 Dashboard inteligente com prioridades  
+- 🎮 Gamificação da manutenção  
+- 🗣️ Assistente por voz (Replayzinho)  
+- 🔁 Benchmark e replicabilidade  
+- ☁️ Totalmente escalável em nuvem AWS
 
-| Entrega                                                               | Coordenador | RM     | Contribuição |
-| :-------------------------------------------------------------------- | :---------- | :----- | :----------- |
-| 1. Design Fundamental - Metodologia, Tecnologias e Conceito de Pipeline | Omar        | 561375 | TODOS        |
-| 2. Aquisição e Preparação de Dados                                  | Paulo       | 564262 | TODOS        |
-| 3. Armazenamento e Estrutura de Dados                                 | Deivisson   | 565095 | TODOS        |
-| 4. Implementação na Nuvem, Integração de IA e Implantação do MVP      | Renan       | 566175 | TODOS        |
+## 🔐 Segurança e LGPD
 
-## 10. Detalhes das Entregas Futuras (Resumido)
+- Criptografia em trânsito e repouso (IoT e dados)  
+- Controle de acesso (IAM, VPC, Roles)  
+- Isolamento por TenantID (PostgreSQL + RLS)  
+- Aderência à LGPD (dados pessoais e sensíveis)
 
-* **Entrega 2 - Aquisição e Preparação de Dados:** Foco na integração dos sensores ESP32 (MPU6050, DHT22, Sensor de Gás MQ-XXX, PIR, LDR), código de coleta (MicroPython/Arduino), limpeza de dados, Análise Exploratória de Dados (EDA) e criação de User Stories detalhadas para guiar o desenvolvimento das funcionalidades da plataforma.
-* **Entrega 3 - Armazenamento e Estrutura de Dados:** Abrange a modelagem do banco de dados (Conceitual, Lógico e Físico usando Oracle SQL Developer Data Modeler), com atenção especial ao tratamento de dados de séries temporais através de particionamento (Range ou Interval Partitioning no PostgreSQL) e à estratégia de isolamento de dados multi-tenancy (modelo Pool com TenantID para o MVP).
-* **Entrega 4 - Implementação na Nuvem, IA e MVP:** Detalha a arquitetura completa na AWS (IoT Core, Kinesis/Lambda, S3, RDS, SageMaker, API Gateway, QuickSight, CloudWatch), a implementação dos modelos de IA/ML (LSTM para RUL, Random Forest para classificação de falhas, engenharia de features, tratamento de dados desbalanceados, pipeline SageMaker, MLOps com MLflow), a estratégia de implantação dos modelos (SageMaker Multi-Model Endpoints - MME), o desenvolvimento do dashboard, a configuração de logging e alertas, e a geração de relatórios inteligentes.
+## 👨‍💻 Colaboradores
 
-## 11. Segurança e Conformidade
+- **Omar** – Coordenação Técnica  
+- **Paulo** – Aquisição de Dados  
+- **Deivisson** – Banco de Dados e Multi-tenant  
+- **Renan** – Arquitetura AWS e ML
 
-* **LGPD (Brasil):** Aderência aos princípios da LGPD, definição de bases legais, papéis de controlador (cliente) e processador (Hermes Reply), Contratos de Tratamento de Dados (DPAs), gestão dos direitos dos titulares, e atenção às decisões automatizadas por IA/ML.
-* **Melhores Práticas de Segurança na AWS:** Utilização de IAM com princípio do menor privilégio, segurança de dados em S3 e RDS (isolamento, criptografia), segurança de rede com VPC (sub-redes privadas/públicas, Security Groups, NACLs, VPC Endpoints), criptografia em repouso e em trânsito, segurança em SageMaker, e logging/monitoramento com CloudTrail, GuardDuty, Security Hub e CloudWatch.
-* **Frameworks Relevantes:** Consideração de frameworks como ISO/IEC 27001, NIST Cybersecurity Framework (CSF), SOC 2, e o AWS Well-Architected Framework (SaaS Lens) para uma postura de segurança robusta.
+## 📌 Conclusão
 
-## 12. Conclusão e Próximos Passos
+A proposta apresenta uma solução viável, escalável e inovadora para a manutenção preditiva industrial, com base em tecnologias modernas e práticas de arquitetura em nuvem. O próximo passo será a implementação completa do MVP utilizando dados reais dos sensores.
 
-O projeto estabelece uma base sólida para uma plataforma SaaS de manutenção preditiva. O MVP funcional demonstrará os principais aspectos da solução. Melhorias futuras podem incluir modelagem ML mais avançada, integração com CMMS, edge computing, análise de causa raiz aprimorada, e personalização avançada por tenant.
+---
 
-## Contribuições
-
-Este é um projeto acadêmico desenvolvido pelo Grupo 83. Para contribuições ou dúvidas, por favor, entre em contato com os membros do grupo.
-
-*(Os nomes dos membros do grupo podem ser listados aqui se desejado, baseando-se na seção de divisão de responsabilidades)*
-* Omar Cali Abido Mustafá Assem (Coordenador Entrega 1)
-* Paulo (Coordenador Entrega 2)
-* Deivisson (Coordenador Entrega 3)
-* Renan (Coordenador Entrega 4)
+**Grupo 81 | FIAP IA 2025 | Desafio Hermes Reply**
