@@ -1,4 +1,5 @@
 
+
 # 📦 Projeto SaaS de Manutenção Preditiva Industrial com IA na AWS
 
 ## 🧠 Descrição Geral
@@ -79,20 +80,19 @@ Base: **CRISP-DM** com abordagem iterativa:
 
 ## 👥 Plano de Desenvolvimento
 
-| Sprint | Tarefa                                   | Responsável |
-|--------|------------------------------------------|-------------|
-| 1      | Arquitetura e tecnologias                | Omar        |
-| 2      | Coleta de dados e sensores               | Paulo       |
-| 3      | Banco de dados e multi-tenancy           | Deivisson   |
-| 4      | ML, alerta e dashboard na AWS            | Renan       |
+
+| Entrega                                                               | Coordenador | RM     | Contribuição |
+| :-------------------------------------------------------------------- | :---------- | :----- | :----------- |
+| 1. Design Fundamental - Metodologia, Tecnologias e Conceito de Pipeline | Omar        | 561375 | TODOS        |
+| 2. Aquisição e Preparação de Dados                                  | Paulo       | 564262 | TODOS        |
+| 3. Armazenamento e Estrutura de Dados                                 | Deivisson   | 565095 | TODOS        |
+| 4. Implementação na Nuvem, Integração de IA e Implantação do MVP      | Renan       | 566175 | TODOS        |
 
 ## ✨ Diferenciais da Solução
 
 - 🔮 Previsão com Vida Útil Remanescente (RUL)  
-- 💬 Alertas automatizados via WhatsApp  
-- 📊 Dashboard inteligente com prioridades  
-- 🎮 Gamificação da manutenção  
-- 🗣️ Assistente por voz (Replayzinho)  
+- 💬 Alertas automatizados  
+- 📊 Dashboard inteligente com prioridades   
 - 🔁 Benchmark e replicabilidade  
 - ☁️ Totalmente escalável em nuvem AWS
 
